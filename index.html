@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Seu Raio-X Comercial, {nome} · FACE SCALE</title>
+<meta name="description" content="Raio-X Comercial gratuito para cirurgiões da face: veja a saúde da sua operação, onde você perde pacientes e o plano para destravar o faturamento."/>
+<!-- GTM: cole aqui o snippet do Google Tag Manager -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--azul-900:#003057;--azul-950:#001a33;--azul-1000:#000E17;--azul-rgb:0,48,87;--btn-text:#003057;--verde:#78BE20;--verde-escuro:#5da018;--b06:rgba(255,255,255,0.06);--b08:rgba(255,255,255,0.08);--b12:rgba(255,255,255,0.12);--b20:rgba(255,255,255,0.20);--b25:rgba(255,255,255,0.25)}
+*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%}
+body{font-family:'Inter',system-ui,sans-serif;background:radial-gradient(ellipse at center,var(--azul-900) 0%,var(--azul-950) 50%,var(--azul-1000) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;color:#fff;-webkit-font-smoothing:antialiased}
+.card{position:relative;width:100%;max-width:440px;flex:1;min-height:0;height:calc(100vh - 60px);max-height:960px;border-radius:24px;border:1px solid var(--b06);overflow:hidden;display:flex;flex-direction:column;background:var(--azul-900)}
+.footer-note{font-size:11px;color:var(--b20);font-weight:500;margin-top:10px;letter-spacing:.04em}
+.bg-photo{position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 50% 26%,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 44%),linear-gradient(180deg,#6b7f93 0%,#35506b 55%,var(--azul-900) 100%);transition:filter .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+.bg-photo .silhueta{position:absolute;top:6%;left:50%;transform:translateX(-50%);width:64%;opacity:.35}
+body.flow .bg-photo{filter:blur(34px) brightness(.72);transform:scale(1.12)}
+.bg-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,transparent 30%,rgba(var(--azul-rgb),.6) 60%,rgba(var(--azul-rgb),1) 100%);transition:background .7s ease}
+body.flow .bg-overlay{background:linear-gradient(to bottom,rgba(var(--azul-rgb),.35) 0%,rgba(var(--azul-rgb),.55) 55%,rgba(var(--azul-rgb),.94) 100%)}
+.screen{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(24px);transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .5s cubic-bezier(.4,0,.2,1)}
+.screen.active{opacity:1;pointer-events:auto;transform:translateY(0)}
+.screen.scrolly{overflow-y:auto}
+@media (prefers-reduced-motion:reduce){.screen{transition:opacity .2s linear;transform:none}.word,.option,.mopt{animation:none!important;opacity:1!important;transform:none!important}.bg-photo{transition:none}.spinner{animation-duration:2.5s}}
+.word{display:inline-block;opacity:0;transform:translateY(10px);animation:wordIn .5s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes wordIn{to{opacity:1;transform:translateY(0)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+.start-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 32px 24px}
+.logo-glass{display:flex;align-items:center;justify-content:center;background:var(--b08);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--b08);border-radius:20px;padding:20px 24px;margin-bottom:32px;animation:pop .6s cubic-bezier(.34,1.56,.64,1) .2s both}
+.headline{font-size:26px;line-height:1.3;font-weight:700;text-align:center;letter-spacing:-.01em;margin-bottom:16px;max-width:370px}
+.subheadline{font-size:15px;line-height:1.6;text-align:center;color:rgba(255,255,255,.85);max-width:360px;margin-bottom:28px}
+.btn{width:100%;padding:22px 16px;border:none;cursor:pointer;border-radius:8px;background:linear-gradient(135deg,var(--verde),var(--verde-escuro));color:var(--btn-text);font-family:inherit;font-weight:700;font-size:15px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s ease,filter .15s ease}
+.btn:hover{filter:brightness(1.05)}.btn:active{transform:scale(.98)}.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.start-content .btn{animation:rise .5s ease .8s both}
+.flow-screen{padding:26px 22px 20px;justify-content:space-between}
+.flow-header{display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:8px;text-align:center}
+.greeting{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.35;max-width:340px}
+.bloco-eyebrow{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+.bloco-sub{font-size:13px;color:rgba(255,255,255,.55);margin-top:-4px}
+.bloco-dashes{display:flex;gap:6px;align-items:center;margin-top:2px}
+.bloco-dashes span{height:4px;border-radius:99px;width:9px;background:var(--b20);transition:all .3s ease}
+.bloco-dashes span.cur{width:26px}
+.chat-card{border:1px solid var(--b12);border-radius:22px;padding:26px 22px;background:rgba(255,255,255,0.02);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);max-height:62vh;overflow-y:auto}
+.chat-question{font-size:18px;font-weight:600;line-height:1.45}
+.chat-sub{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px}
+.chat-body{margin-top:26px}
+.input-row{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--b20);padding-bottom:12px;opacity:0;animation:wordIn .5s cubic-bezier(.4,0,.2,1) .45s forwards}
+.input-row input{flex:1;min-width:0;background:transparent;border:none;color:#fff;font-family:inherit;font-size:23px;font-weight:400}
+.input-row input::placeholder{color:var(--b25)}.input-row input:focus{outline:none}
+.btn-next{width:52px;height:52px;border-radius:50%;flex-shrink:0;cursor:pointer;background:var(--b06);border:1px solid var(--b08);color:rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,transform .1s ease}
+.btn-next.ready{background:linear-gradient(135deg,var(--verde),var(--verde-escuro));color:var(--btn-text);border-color:transparent}
+.btn-next:active{transform:scale(.94)}
+.sugestoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.sugestao{padding:9px 14px;border-radius:999px;cursor:pointer;background:var(--b06);border:1px solid var(--b12);color:rgba(255,255,255,.75);font-family:inherit;font-size:13px}
+.sugestao:hover{border-color:var(--verde);color:#fff}
+.options{display:flex;flex-direction:column;gap:10px}
+.option{text-align:left;padding:15px 16px;border-radius:12px;cursor:pointer;background:var(--b06);border:1px solid var(--b08);color:#fff;font-family:inherit;font-size:15px;font-weight:500;line-height:1.4;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(10px);animation:wordIn .45s cubic-bezier(.4,0,.2,1) forwards;transition:background .15s ease,border-color .15s ease}
+.option:hover{background:var(--b08);border-color:var(--b12)}
+.option.selected{background:rgba(120,190,32,.14);border-color:var(--verde)}
+.option .dot{width:18px;height:18px;border-radius:50%;flex-shrink:0;border:2px solid var(--b20);transition:all .15s ease}
+.option.selected .dot{border-color:var(--verde);background:var(--verde);box-shadow:inset 0 0 0 3px var(--azul-900)}
+.option .otit{font-weight:600}.option .osub{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:3px;font-weight:400}
+.option .otxt{flex:1;min-width:0}
+.mopt{text-align:left;padding:14px 16px;border-radius:12px;cursor:pointer;background:var(--b06);border:1px solid var(--b08);color:#fff;font-family:inherit;font-size:14.5px;font-weight:500;line-height:1.4;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(10px);animation:wordIn .45s cubic-bezier(.4,0,.2,1) forwards;transition:background .15s ease,border-color .15s ease}
+.mopt.selected{background:rgba(120,190,32,.12);border-color:var(--verde)}
+.mopt .cb{width:22px;height:22px;border-radius:6px;flex-shrink:0;border:2px solid var(--b20);display:flex;align-items:center;justify-content:center;transition:all .15s ease;color:transparent}
+.mopt.selected .cb{background:var(--verde);border-color:var(--verde);color:var(--btn-text)}
+.btn-bloco{margin-top:16px;animation:rise .4s ease .2s both}
+.msg-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 26px}
+.msg-title{font-size:23px;font-weight:700;line-height:1.4;letter-spacing:-.01em;max-width:340px}
+.msg-text{font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.6;margin-top:16px;max-width:300px}
+.msg-btns{display:flex;gap:12px;margin-top:34px}
+.flow-bottom{display:flex;justify-content:center;gap:12px;padding-top:14px;padding-bottom:8px}
+.pill{display:flex;align-items:center;gap:11px;cursor:pointer;background:rgba(0,0,0,.18);border:1px solid var(--b12);border-radius:999px;padding:7px 24px 7px 7px;color:#fff;font-family:inherit;font-size:15px;font-weight:500;transition:background .2s ease}
+.pill:hover{background:rgba(0,0,0,.3)}
+.pill .circle{width:42px;height:42px;border-radius:50%;background:var(--b12);display:flex;align-items:center;justify-content:center}
+.pill.go{background:linear-gradient(135deg,var(--verde),var(--verde-escuro));border-color:transparent;color:var(--btn-text);font-weight:700;padding:7px 7px 7px 24px}
+.pill.go .circle{background:rgba(0,0,0,.15)}
+.center-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center}
+.spinner{width:56px;height:56px;border-radius:50%;margin-bottom:28px;border:4px solid var(--b08);border-top-color:var(--verde);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-title{font-size:18px;font-weight:700;margin-bottom:10px}
+.loading-step{font-size:14px;color:rgba(255,255,255,.65);min-height:22px}
+.loading-pct{font-size:34px;font-weight:800;color:var(--verde);margin-top:20px;font-variant-numeric:tabular-nums}
+.res-wrap{padding:30px 22px 26px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.res-eyebrow{font-size:11px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:14px}
+.res-title{font-size:24px;font-weight:800;letter-spacing:-.01em;text-align:center}
+.gauge{margin:10px 0 0}
+.res-status{font-size:17px;font-weight:800;margin-top:-6px}
+.res-status-desc{font-size:13.5px;color:rgba(255,255,255,.6);margin-top:4px;text-align:center}
+.res-bloco{width:100%;border:1px solid var(--b08);border-radius:16px;padding:18px;margin-top:14px;background:rgba(255,255,255,.02)}
+.res-bloco .rb-head{display:flex;align-items:center;gap:12px}
+.res-bloco .rb-ico{width:42px;height:42px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.res-bloco .rb-info{flex:1;min-width:0}
+.res-bloco .rb-nome{font-size:15px;font-weight:700;line-height:1.3}
+.res-bloco .rb-status{font-size:12.5px;font-weight:700;margin-top:2px}
+.res-bloco .rb-pct{font-size:24px;font-weight:800;flex-shrink:0}
+.res-bar{height:9px;border-radius:99px;background:var(--b08);margin-top:14px;overflow:hidden;position:relative}
+.res-bar i{display:block;height:100%;border-radius:99px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+.res-scale{display:flex;justify-content:space-between;font-size:9.5px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-top:7px;text-transform:uppercase}
+.res-sec{width:100%;display:flex;align-items:center;gap:9px;font-size:15px;font-weight:700;margin-top:22px;color:rgba(255,255,255,.85)}
+.presc-card{width:100%;border:1px solid var(--b08);border-radius:16px;padding:16px 18px;margin-top:12px;background:rgba(255,255,255,.02)}
+.presc-head{display:flex;align-items:center;justify-content:space-between;font-size:14.5px;font-weight:700}
+.presc-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;border:1px solid;cursor:pointer;font-family:inherit;background:transparent}
+.chip.ok{color:var(--verde);border-color:rgba(120,190,32,.5);background:rgba(120,190,32,.08)}
+.chip.plus{color:#a9a4ff;border-color:rgba(150,140,255,.45);background:rgba(150,140,255,.08)}
+.proj-card{width:100%;border:1px solid rgba(120,190,32,.35);border-radius:16px;padding:20px;margin-top:20px;background:rgba(120,190,32,.05)}
+.proj-eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--verde);display:flex;align-items:center;gap:8px}
+.proj-text{font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.6;margin-top:10px}
+.proj-line{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:13.5px;margin-top:12px;color:rgba(255,255,255,.8)}
+.proj-line span{flex:1;min-width:0;line-height:1.45}
+.proj-line b{font-weight:700;color:#fff;white-space:nowrap;flex-shrink:0;text-align:right}
+.proj-total{display:flex;justify-content:space-between;align-items:center;gap:14px;border-top:1px solid var(--b12);margin-top:16px;padding-top:14px}
+.proj-total .lbl{flex:1;min-width:0;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.45);text-transform:uppercase;line-height:1.55}
+.proj-total .val{font-size:clamp(17px,6vw,23px);font-weight:800;color:var(--verde);white-space:nowrap;flex-shrink:0}
+.res-cta{width:100%;margin-top:22px}
+.res-pills{display:flex;gap:12px;margin-top:16px;padding-bottom:8px}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="bg-photo" id="bg-photo"><svg class="silhueta" viewBox="0 0 200 260" fill="rgba(255,255,255,0.9)" aria-hidden="true"><circle cx="100" cy="78" r="46"/><path d="M100 132c-52 0-82 34-82 88v40h164v-40c0-54-30-88-82-88z"/></svg></div>
+  <div class="bg-overlay"></div>
+  <section class="screen active" id="screen-start" aria-label="Tela inicial">
+    <div class="start-content">
+      <div class="logo-glass" id="logo-start" aria-hidden="true"></div>
+      <h1 class="headline" id="start-headline"></h1>
+      <p class="subheadline" id="start-sub"></p>
+      <button class="btn" id="btn-start"></button>
+    </div>
+  </section>
+  <section class="screen flow-screen" id="screen-flow" aria-label="Diagnóstico"></section>
+  <section class="screen flow-screen" id="screen-loading" aria-label="Analisando">
+    <div class="center-area">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="loading-title">Analisando suas respostas…</p>
+      <p class="loading-step" id="loading-step"></p>
+      <p class="loading-pct" id="loading-pct">0%</p>
+    </div>
+  </section>
+  <section class="screen scrolly" id="screen-result" aria-label="Resultado"></section>
+</div>
+<p class="footer-note" id="footer-note"></p>
+
+<script>
+(function QUIZ_ENGINE(CONFIG){
+  "use strict";
+  var $id = function(id){ return document.getElementById(id); };
+  var respostas = {};
+  var history = [];
+  var currentId = null;
+
+  /* ---------- helpers ---------- */
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function shade(h,p){ try{ var n=parseInt(h.slice(1),16),r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+    r=Math.min(255,Math.max(0,Math.round(r*(100+p)/100)));g=Math.min(255,Math.max(0,Math.round(g*(100+p)/100)));b=Math.min(255,Math.max(0,Math.round(b*(100+p)/100)));
+    return "#"+((r<<16)|(g<<8)|b).toString(16).padStart(6,"0"); }catch(e){ return h; } }
+  function rgbOf(h){ try{ var n=parseInt(h.slice(1),16); return (((n>>16)&255)+","+((n>>8)&255)+","+(n&255)); }catch(e){ return "0,48,87"; } }
+  function primeiroNome(){ return respostas.nome ? String(respostas.nome).trim().split(" ")[0] : ""; }
+  function subst(t){ return String(t==null?"":t).split("{nome}").join(primeiroNome()||"você"); }
+  function fmtBRL(n){ var v=Math.round(Number(n)||0); return "R$ " + String(v).replace(/\B(?=(\d{3})+(?!\d))/g,"."); }
+  function norm(s){ return String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
+  function findStep(id){ return CONFIG.passos.find(function(p){return p.id===id;}); }
+  function stepIndex(id){ return CONFIG.passos.findIndex(function(p){return p.id===id;}); }
+  function findBloco(id){ return (CONFIG.blocos||[]).find(function(b){return b.id===id;}); }
+  function animateText(el, text, base, stag){
+    base=base||0; stag=stag||45; el.innerHTML="";
+    String(text||"").split(" ").forEach(function(w,i){
+      var s=document.createElement("span"); s.className="word"; s.textContent=w;
+      s.style.animationDelay=(base+i*stag)+"ms";
+      el.appendChild(s); el.appendChild(document.createTextNode(" "));
+    });
+  }
+  function logoHTML(altura){
+    var t = CONFIG.tema||{};
+    if(t.logoData) return '<img src="'+t.logoData+'" alt="" style="height:'+altura+'px;display:block;max-width:160px;object-fit:contain"/>';
+    return '<svg width="'+Math.round(altura*0.86)+'" height="'+altura+'" viewBox="0 0 36 42" fill="#fff" aria-hidden="true"><circle cx="18" cy="8" r="5"/><circle cx="7" cy="18" r="5"/><circle cx="29" cy="18" r="5"/><circle cx="12" cy="31" r="5"/><circle cx="24" cy="31" r="5"/></svg>';
+  }
+  function showScreen(id){
+    ["screen-start","screen-flow","screen-loading","screen-result"].forEach(function(s){
+      $id(s).classList.toggle("active", s===id);
+    });
+  }
+
+  /* ---------- tema ---------- */
+  (function(){
+    var t = CONFIG.tema||{};
+    var r = document.documentElement.style;
+    if(t.corFundo){ r.setProperty("--azul-900",t.corFundo); r.setProperty("--azul-950",shade(t.corFundo,-35)); r.setProperty("--azul-1000",shade(t.corFundo,-60)); r.setProperty("--azul-rgb",rgbOf(t.corFundo)); }
+    if(t.corPrimaria){ r.setProperty("--verde",t.corPrimaria); r.setProperty("--verde-escuro",shade(t.corPrimaria,-18)); }
+    if(t.corTextoBotao){ r.setProperty("--btn-text",t.corTextoBotao); }
+    if(t.fonte && t.fonte!=="Inter"){
+      var l=document.createElement("link"); l.rel="stylesheet";
+      l.href="https://fonts.googleapis.com/css2?family="+t.fonte.split(" ").join("+")+":wght@400;500;600;700;800&display=swap";
+      document.head.appendChild(l);
+      document.body.style.fontFamily="'"+t.fonte+"',system-ui,sans-serif";
+    }
+    if(t.fotoData){
+      var bp=$id("bg-photo");
+      bp.style.backgroundImage="url("+t.fotoData+")";
+      bp.style.backgroundSize="cover"; bp.style.backgroundPosition="top center";
+      var sil=bp.querySelector(".silhueta"); if(sil) sil.style.display="none";
+    }
+  })();
+
+  /* ---------- cidades (IBGE) ---------- */
+  var cidades = null, cidadesPedido = false;
+  function carregarCidades(cb){
+    if(cidades){ cb(); return; }
+    if(cidadesPedido) return;
+    cidadesPedido = true;
+    fetch("https://servicodados.ibge.gov.br/api/v1/localidades/municipios?orderBy=nome")
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        cidades = j.map(function(m){
+          var uf = "";
+          try{ uf = m.microrregiao.mesorregiao.UF.sigla; }catch(e){}
+          if(!uf){ try{ uf = m["regiao-imediata"]["regiao-intermediaria"].UF.sigla; }catch(e){} }
+          return m.nome + (uf ? " / "+uf : "");
+        });
+        cb();
+      })
+      .catch(function(){ cidades = []; });
+  }
+
+  /* ---------- pontuação ---------- */
+  function calcScores(){
+    var porBloco = {};
+    CONFIG.passos.forEach(function(p){
+      if(!p.bloco || (p.type!=="options" && p.type!=="multi")) return;
+      var r = respostas[p.field];
+      if(r==null) return;
+      var pts = null;
+      if(p.type==="options"){
+        var op = (p.opcoes||[]).find(function(o){ return o.texto===r; });
+        if(op) pts = Number(op.pontos)||0;
+      }else{
+        var marcadas = Array.isArray(r)?r:[];
+        pts = Math.min(100, (p.opcoes||[]).filter(function(o){ return marcadas.indexOf(o.texto)>-1; })
+          .reduce(function(s,o){ return s+(Number(o.pontos)||0); },0));
+      }
+      if(pts==null) return;
+      (porBloco[p.bloco]=porBloco[p.bloco]||[]).push(pts);
+    });
+    var blocos = (CONFIG.blocos||[]).map(function(b){
+      var arr = porBloco[b.id];
+      if(!arr || !arr.length) return null;
+      return { bloco:b, score: Math.round(arr.reduce(function(a,c){return a+c;},0)/arr.length) };
+    }).filter(Boolean);
+    var geral = blocos.length ? Math.round(blocos.reduce(function(a,c){return a+c.score;},0)/blocos.length) : 0;
+    return { blocos:blocos, geral:geral };
+  }
+  function faixaDe(score){
+    var fs = CONFIG.resultado.faixas;
+    for(var i=0;i<fs.length;i++){ if(score<=fs[i].ate) return fs[i]; }
+    return fs[fs.length-1];
+  }
+
+  /* ---------- navegação ---------- */
+  function goToStep(id){ history.push(currentId); currentId=id; renderStep(); }
+  function nextSequential(){
+    var i = stepIndex(currentId);
+    if(i < CONFIG.passos.length-1){ goToStep(CONFIG.passos[i+1].id); }
+    else finish();
+  }
+  function voltar(){
+    if(history.length){ currentId = history.pop(); renderStep(); }
+    else { document.body.classList.remove("flow"); showScreen("screen-start"); }
+  }
+
+  /* ---------- render do passo ---------- */
+  function renderStep(){
+    var p = findStep(currentId);
+    if(!p){ finish(); return; }
+    var sc = $id("screen-flow");
+    var bloco = p.bloco ? findBloco(p.bloco) : null;
+
+    var headHTML = '<div class="flow-header">'+logoHTML(32);
+    if(bloco){
+      var doBloco = CONFIG.passos.filter(function(x){ return x.bloco===p.bloco; });
+      var pos = doBloco.findIndex(function(x){ return x.id===p.id; });
+      headHTML += '<div><p class="bloco-eyebrow" style="color:'+esc(bloco.cor)+'">'+esc(bloco.nome)+'</p>'+
+        (bloco.subtitulo?'<p class="bloco-sub">'+esc(bloco.subtitulo)+'</p>':'')+'</div>'+
+        '<div class="bloco-dashes">'+doBloco.map(function(x,xi){
+          return '<span class="'+(xi===pos?"cur":"")+'" style="background:'+(xi<=pos?esc(bloco.cor):"rgba(255,255,255,.2)")+'"></span>';
+        }).join("")+'</div>';
+    } else if(p.type!=="mensagem" && respostas.nome && p.field!=="nome"){
+      headHTML += '<p class="greeting" id="greet"></p>';
+    }
+    headHTML += '</div>';
+
+    if(p.type==="mensagem"){
+      sc.innerHTML = headHTML +
+        '<div class="msg-area"><h2 class="msg-title" id="msg-title"></h2>'+
+        (p.texto?'<p class="msg-text">'+esc(subst(p.texto))+'</p>':'')+
+        '<div class="msg-btns">'+
+        '<button class="pill" id="btn-voltar"><span class="circle">←</span>Voltar</button>'+
+        '<button class="pill go" id="btn-avancar">'+esc(p.textoBotao||"Avançar")+'<span class="circle">→</span></button>'+
+        '</div></div><div></div>';
+      animateText($id("msg-title"), subst(p.titulo||""), 100);
+      $id("btn-voltar").onclick = voltar;
+      $id("btn-avancar").onclick = nextSequential;
+      return;
+    }
+
+    sc.innerHTML = headHTML +
+      '<div class="chat-card"><p class="chat-question" id="q"></p>'+
+      (p.subtitulo?'<p class="chat-sub">'+esc(p.subtitulo)+'</p>':'')+
+      '<div class="chat-body" id="body"></div></div>'+
+      '<div class="flow-bottom"><button class="pill" id="btn-voltar"><span class="circle">←</span>Voltar</button></div>';
+
+    var g = $id("greet");
+    if(g) animateText(g, "Prazer te conhecer, "+primeiroNome()+".");
+    animateText($id("q"), subst(p.pergunta||""), 130);
+    $id("btn-voltar").onclick = voltar;
+
+    var body = $id("body");
+
+    if(p.type==="input") renderInput(p, body);
+    if(p.type==="options") renderOptions(p, body);
+    if(p.type==="multi") renderMulti(p, body);
+  }
+
+  function renderInput(p, body){
+    var row = document.createElement("div"); row.className="input-row";
+    var input = document.createElement("input");
+    var it = p.inputType||"text";
+    input.type = it==="email" ? "email" : it==="tel" ? "tel" : "text";
+    if(it==="numero"||it==="moeda") input.inputMode="numeric";
+    input.placeholder = p.placeholder||"";
+    input.value = respostas[p.field]||"";
+    input.autocomplete = p.field==="nome"?"name":p.field==="email"?"email":p.field==="whatsapp"?"tel":"off";
+    var btn = document.createElement("button");
+    btn.className="btn-next"; btn.setAttribute("aria-label","Avançar");
+    btn.innerHTML = "→";
+    row.appendChild(input); row.appendChild(btn);
+    body.appendChild(row);
+
+    var sugBox = null;
+    if(it==="cidade"){
+      sugBox = document.createElement("div"); sugBox.className="sugestoes";
+      body.appendChild(sugBox);
+      carregarCidades(function(){});
+    }
+    if(it==="moeda" && !input.value) input.value = "";
+
+    function valorNum(){
+      if(it==="moeda") return Number(String(input.value).replace(/[^\d]/g,""));
+      if(it==="numero") return Number(String(input.value).replace(/[^\d.,]/g,"").replace(",", "."));
+      return null;
+    }
+    function valida(v){
+      if(it==="email") return v.indexOf("@")>-1 && v.indexOf(".")>-1;
+      if(it==="tel") return v.replace(/\D/g,"").length>=10;
+      if(it==="moeda") return String(input.value).replace(/[^\d]/g,"").length>0;
+      if(it==="numero") return String(v).trim()!=="" && !isNaN(valorNum()) && valorNum()>=0 && (!p.max || valorNum()<=Number(p.max));
+      return String(v).trim().length>=2;
+    }
+    function sync(){ btn.classList.toggle("ready", valida(input.value)); }
+    function avancar(){
+      if(!valida(input.value)) return;
+      respostas[p.field] = input.value.trim();
+      if(it==="moeda"||it==="numero") respostas[p.field+"__num"] = valorNum();
+      nextSequential();
+    }
+    input.addEventListener("input", function(){
+      if(it==="moeda"){
+        var d = String(input.value).replace(/[^\d]/g,"").slice(0,10);
+        input.value = d ? fmtBRL(Number(d)) : "";
+      }
+      if(it==="numero" && p.max){
+        var dn = String(input.value).replace(/[^\d]/g,"").slice(0, String(p.max).length);
+        input.value = dn;
+      }
+      sync();
+      if(it==="cidade" && sugBox){
+        var v = norm(input.value);
+        sugBox.innerHTML = "";
+        if(v.length>=2 && cidades){
+          cidades.filter(function(c){ return norm(c).indexOf(v)===0; }).slice(0,6).forEach(function(c){
+            var s = document.createElement("button");
+            s.className="sugestao"; s.type="button"; s.textContent=c;
+            s.onclick = function(){
+              input.value = c; respostas[p.field]=c; sync();
+              setTimeout(nextSequential, 160);
+            };
+            sugBox.appendChild(s);
+          });
+        }
+      }
+    });
+    input.addEventListener("keydown", function(e){ if(e.key==="Enter") avancar(); });
+    btn.onclick = avancar;
+    sync();
+    setTimeout(function(){ input.focus(); }, 450);
+  }
+
+  function renderOptions(p, body){
+    var rico = (p.opcoes||[]).some(function(o){ return o.subtitulo; });
+    var wrap = document.createElement("div"); wrap.className="options";
+    wrap.setAttribute("role","radiogroup");
+    (p.opcoes||[]).forEach(function(o,i){
+      var b = document.createElement("button");
+      b.className = "option"+(respostas[p.field]===o.texto?" selected":"");
+      b.style.animationDelay = (300+i*80)+"ms";
+      b.setAttribute("role","radio");
+      b.setAttribute("aria-checked", respostas[p.field]===o.texto?"true":"false");
+      if(rico){
+        b.innerHTML = '<span class="otxt"><span class="otit">'+esc(o.texto)+'</span>'+
+          (o.subtitulo?'<div class="osub">'+esc(o.subtitulo)+'</div>':'')+'</span><span class="dot"></span>';
+      }else{
+        b.innerHTML = '<span class="dot"></span><span class="otxt">'+esc(o.texto)+'</span>';
+      }
+      b.onclick = function(){
+        respostas[p.field] = o.texto;
+        Array.prototype.forEach.call(wrap.children, function(x){ x.classList.remove("selected"); x.setAttribute("aria-checked","false"); });
+        b.classList.add("selected"); b.setAttribute("aria-checked","true");
+        setTimeout(function(){
+          if(o.goTo==="fim"){ history.push(currentId); finish(); }
+          else if(o.goTo && findStep(o.goTo)){ goToStep(o.goTo); }
+          else nextSequential();
+        }, 300);
+      };
+      wrap.appendChild(b);
+    });
+    body.appendChild(wrap);
+  }
+
+  function renderMulti(p, body){
+    if(!Array.isArray(respostas[p.field])) respostas[p.field] = respostas[p.field]||[];
+    var wrap = document.createElement("div"); wrap.className="options";
+    (p.opcoes||[]).forEach(function(o,i){
+      var sel = respostas[p.field].indexOf(o.texto)>-1;
+      var b = document.createElement("button");
+      b.className = "mopt"+(sel?" selected":"");
+      b.style.animationDelay = (280+i*60)+"ms";
+      b.setAttribute("role","checkbox");
+      b.setAttribute("aria-checked", sel?"true":"false");
+      b.innerHTML = '<span class="cb">✓</span><span class="otxt">'+esc(o.texto)+'</span>';
+      b.onclick = function(){
+        var arr = respostas[p.field];
+        var ix = arr.indexOf(o.texto);
+        if(ix>-1) arr.splice(ix,1); else arr.push(o.texto);
+        b.classList.toggle("selected", ix===-1);
+        b.setAttribute("aria-checked", ix===-1?"true":"false");
+      };
+      wrap.appendChild(b);
+    });
+    body.appendChild(wrap);
+    var btn = document.createElement("button");
+    btn.className = "btn btn-bloco";
+    btn.innerHTML = esc(p.textoBotao||"Avançar")+" →";
+    btn.onclick = nextSequential;
+    body.appendChild(btn);
+  }
+
+  /* ---------- finalização ---------- */
+  function finish(){
+    var scores = calcScores();
+    var payload = {};
+    Object.keys(respostas).forEach(function(k){ payload[k]=respostas[k]; });
+    payload.pontuacao_geral = scores.geral;
+    payload.pontuacao_blocos = scores.blocos.map(function(s){
+      return { bloco:s.bloco.nome, score:s.score, status:faixaDe(s.score).label };
+    });
+    payload.data = new Date().toISOString();
+    if(CONFIG.webhookUrl){
+      fetch(CONFIG.webhookUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){});
+    }
+    window.dataLayer = window.dataLayer||[];
+    window.dataLayer.push(Object.assign({event:"quiz_lead"}, payload));
+    showScreen("screen-loading");
+    runLoading(function(){ showResult(scores); });
+  }
+
+  function runLoading(done){
+    var pct=0, si=0;
+    var pctEl=$id("loading-pct"), stepEl=$id("loading-step");
+    var steps = CONFIG.loadingSteps||["Processando"];
+    pctEl.textContent="0%"; stepEl.textContent=steps[0];
+    var t = setInterval(function(){
+      pct += Math.floor(Math.random()*7)+3;
+      if(pct>=100){ pct=100; clearInterval(t); setTimeout(done, 450); }
+      pctEl.textContent = pct+"%";
+      var s = Math.min(Math.floor(pct/(100/steps.length)), steps.length-1);
+      if(s!==si){ si=s; stepEl.textContent=steps[s]; }
+    },170);
+  }
+
+  /* ---------- resultado ---------- */
+  function gaugeSVG(pct, cor){
+    var cx=130, cy=118, r=92;
+    var a = Math.PI*(1 - pct/100);
+    var nx = cx + Math.cos(a)*(r-14), ny = cy - Math.sin(a)*(r-14);
+    var arcLen = Math.PI*r;
+    var ticks = [0,20,40,60,80,100].map(function(v){
+      var ta = Math.PI*(1 - v/100);
+      var tx = cx + Math.cos(ta)*(r+22), ty = cy - Math.sin(ta)*(r+22);
+      return '<text x="'+tx.toFixed(1)+'" y="'+(ty+4).toFixed(1)+'" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.4)" font-weight="600">'+v+'</text>';
+    }).join("");
+    return '<svg class="gauge" width="272" height="152" viewBox="0 0 260 145" aria-label="Pontuação geral '+pct+'%">'+
+      '<path d="M '+(cx-r)+' '+cy+' A '+r+' '+r+' 0 0 1 '+(cx+r)+' '+cy+'" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="15" stroke-linecap="round"/>'+
+      '<path d="M '+(cx-r)+' '+cy+' A '+r+' '+r+' 0 0 1 '+(cx+r)+' '+cy+'" fill="none" stroke="'+cor+'" stroke-width="15" stroke-linecap="round" stroke-dasharray="'+arcLen.toFixed(1)+'" stroke-dashoffset="'+(arcLen*(1-pct/100)).toFixed(1)+'" style="filter:drop-shadow(0 0 10px '+cor+'66)"/>'+
+      ticks+
+      '<line x1="'+cx+'" y1="'+cy+'" x2="'+nx.toFixed(1)+'" y2="'+ny.toFixed(1)+'" stroke="'+cor+'" stroke-width="3.5" stroke-linecap="round"/>'+
+      '<circle cx="'+cx+'" cy="'+cy+'" r="8" fill="none" stroke="'+cor+'" stroke-width="3.5"/>'+
+      '<text x="'+cx+'" y="'+(cy-24)+'" text-anchor="middle" font-size="42" font-weight="800" fill="'+cor+'">'+pct+'%</text>'+
+      '</svg>';
+  }
+
+  function showResult(scores){
+    var sc = $id("screen-result");
+    var f = faixaDe(scores.geral);
+    var esq = CONFIG.resultado.faixas;
+    var html = '<div class="res-wrap">'+logoHTML(30)+
+      '<p class="res-eyebrow">'+esc(CONFIG.resultado.eyebrow||"")+'</p>'+
+      '<h2 class="res-title">'+esc(subst(CONFIG.resultado.titulo||""))+'</h2>'+
+      gaugeSVG(scores.geral, f.cor)+
+      '<p class="res-status" style="color:'+f.cor+'">'+esc(f.label)+'</p>'+
+      '<p class="res-status-desc">'+esc(f.desc)+'</p>';
+
+    scores.blocos.forEach(function(s){
+      var fb = faixaDe(s.score);
+      html += '<div class="res-bloco">'+
+        '<div class="rb-head">'+
+        '<div class="rb-ico" style="background:'+s.bloco.cor+'22;color:'+esc(s.bloco.cor)+'">'+esc(s.bloco.nome.charAt(0))+'</div>'+
+        '<div class="rb-info"><p class="rb-nome">'+esc(s.bloco.nome)+'</p>'+
+        '<p class="rb-status" style="color:'+fb.cor+'">'+esc(fb.label)+'</p></div>'+
+        '<span class="rb-pct" style="color:'+fb.cor+'">'+s.score+'%</span></div>'+
+        '<div class="res-bar"><i style="width:'+s.score+'%;background:linear-gradient(90deg,'+fb.cor+'aa,'+fb.cor+')"></i></div>'+
+        '<div class="res-scale">'+esq.map(function(x){ return '<span>'+esc(x.label)+'</span>'; }).join("")+'</div>'+
+        '</div>';
+    });
+
+    /* prescrição */
+    var presc = scores.blocos.map(function(s){
+      var recs = (s.bloco.recomendacoes||[]).filter(function(r){ return s.score <= (r.limite==null?75:Number(r.limite)); });
+      return recs.length ? {s:s, recs:recs} : null;
+    }).filter(Boolean);
+    if(presc.length){
+      html += '<div class="res-sec">🔗&nbsp; Prescrição Personalizada</div>';
+      presc.forEach(function(pr){
+        var fb = faixaDe(pr.s.score);
+        html += '<div class="presc-card"><div class="presc-head"><span>'+esc(pr.s.bloco.nome)+'</span>'+
+          '<span style="color:'+fb.cor+'">'+pr.s.score+'%</span></div><div class="presc-chips">'+
+          pr.recs.map(function(r,ri){
+            var cls = ri===0 ? "ok" : "plus";
+            var pref = ri===0 ? "✓ " : "+ ";
+            var inner = pref+esc(r.nome);
+            return r.link
+              ? '<a class="chip '+cls+'" href="'+esc(r.link)+'" target="_blank" rel="noopener">'+inner+'</a>'
+              : '<span class="chip '+cls+'">'+inner+'</span>';
+          }).join("")+'</div></div>';
+      });
+    }
+
+    /* projeção 12 meses */
+    var gp = CONFIG.gap||{};
+    if(gp.ativo){
+      function numDe(campo){ var v = Number(respostas[(campo||"")+"__num"]); return isNaN(v)?null:v; }
+      var inv = numDe(gp.campoInvestimento);
+      var meses = numDe(gp.campoMeses);
+      var cons = numDe(gp.campoConsultas);
+      var tik = numDe(gp.campoTicket);
+      var temInvest = inv!=null && meses!=null && meses>0 && inv>0;
+      var temPotencial = cons!=null && cons>0 && tik!=null && tik>0;
+      if(temInvest || temPotencial){
+        html += '<div class="proj-card">'+
+          '<p class="proj-eyebrow">◎ '+esc(gp.titulo||"GAP FINANCEIRO DE PERDA")+'</p>'+
+          '<p class="proj-text">'+esc(gp.texto||"")+'</p>';
+        if(temInvest){
+          html += '<div class="proj-line"><span>'+esc(gp.labelInvestimento||"Investimento/mês")+'</span><b>'+fmtBRL(inv)+'</b></div>'+
+            '<div class="proj-line"><span>'+esc(gp.labelMeses||"Tempo sem retorno")+'</span><b>'+meses+(meses===1?" mês":" meses")+'</b></div>'+
+            '<div class="proj-total"><span class="lbl">Investido sem o retorno esperado<br>('+fmtBRL(inv)+' × '+meses+')</span>'+
+            '<span class="val" style="color:#ff8a3c">'+fmtBRL(inv*meses)+'</span></div>';
+        }
+        if(temPotencial){
+          var potencialMes = cons*tik;
+          html += '<div class="proj-line" style="margin-top:'+(temInvest?'20':'12')+'px"><span>'+esc(gp.labelConsultas||"Consultas no último mês")+'</span><b>'+cons+'</b></div>'+
+            '<div class="proj-line"><span>'+esc(gp.labelTicket||"Valor do procedimento principal")+'</span><b>'+fmtBRL(tik)+'</b></div>'+
+            '<div class="proj-total"><span class="lbl">Potencial que passou pela clínica no mês<br>('+cons+' × '+fmtBRL(tik)+')</span>'+
+            '<span class="val">'+fmtBRL(potencialMes)+'</span></div>'+
+            '<div class="proj-total"><span class="lbl">Em 12 meses<br>('+fmtBRL(potencialMes)+' × 12)</span>'+
+            '<span class="val">'+fmtBRL(potencialMes*12)+'</span></div>';
+        }
+        html += '</div>';
+      }
+    }
+
+    html += '<button class="btn res-cta" id="btn-cta">'+esc(CONFIG.ctaFinal||"Falar com um especialista")+' →</button>'+
+      '<div class="res-pills">'+
+      '<button class="pill" id="btn-res-voltar"><span class="circle">←</span>Voltar</button>'+
+      '<button class="pill" id="btn-refazer"><span class="circle">↺</span>Refazer</button>'+
+      '</div></div>';
+
+    sc.innerHTML = html;
+    showScreen("screen-result");
+    $id("btn-cta").onclick = function(){ location.href = CONFIG.linkFinal; };
+    $id("btn-res-voltar").onclick = function(){ showScreen("screen-flow"); renderStep(); };
+    $id("btn-refazer").onclick = function(){
+      respostas = {}; history = [];
+      currentId = CONFIG.passos[0] ? CONFIG.passos[0].id : null;
+      showScreen("screen-flow"); renderStep();
+    };
+  }
+
+  /* ---------- init ---------- */
+  $id("logo-start").innerHTML = logoHTML(42);
+  animateText($id("start-headline"), CONFIG.headline, 350, 55);
+  animateText($id("start-sub"), CONFIG.subheadline, 700, 22);
+  $id("btn-start").innerHTML = esc(CONFIG.ctaInicial||"Começar")+" →";
+  $id("footer-note").textContent = (CONFIG.marca||"") + " © " + (new Date().getFullYear()) + " · All Rights Reserved";
+  $id("btn-start").onclick = function(){
+    document.body.classList.add("flow");
+    currentId = CONFIG.passos[0] ? CONFIG.passos[0].id : null;
+    history = [];
+    showScreen("screen-flow");
+    renderStep();
+  };
+})({"marca":"FACE SCALE","headline":"Descubra por que sua clínica fatura menos do que a sua técnica merece","subheadline":"Raio-X Comercial gratuito para cirurgiões da face: veja a saúde da sua operação, onde você perde pacientes e o plano para destravar o faturamento.","ctaInicial":"Começar meu Raio-X gratuito","ctaFinal":"Agendar meu diagnóstico estratégico","linkFinal":"https://wa.me/5500000000000?text=Acabei%20de%20fazer%20o%20Raio-X%20Comercial%20da%20minha%20cl%C3%ADnica","webhookUrl":"","loadingSteps":["Processando suas respostas","Comparando com clínicas que escalaram","Identificando onde você perde pacientes","Montando seu Raio-X personalizado"],"tema":{"corFundo":"#0A1A3A","corPrimaria":"#C9A45C","corTextoBotao":"#0A1A3A","fonte":"Nunito Sans","logoData":"","fotoData":""},"resultado":{"eyebrow":"RAIO-X COMPLETO","titulo":"Seu Raio-X Comercial, {nome}","faixas":[{"ate":25,"label":"UTI","cor":"#ff5252","desc":"Operação em risco — a clínica depende 100% de você"},{"ate":50,"label":"Crítico","cor":"#ff8a3c","desc":"Gargalos graves drenando seu faturamento — agir agora"},{"ate":75,"label":"Atenção","cor":"#ffd43c","desc":"Base boa — corrigir pontos-chave para escalar"},{"ate":100,"label":"Saudável","cor":"#78BE20","desc":"Operação forte — hora de otimizar e escalar"}]},"blocos":[{"id":"b1","nome":"Fonte de Pacientes","subtitulo":"De onde vêm seus pacientes hoje.","cor":"#C9A45C","recomendacoes":[{"nome":"FACE SCALE · Trilha Fonte de Pacientes (SDR + Indicação)","link":"","limite":75},{"nome":"Trilha de Reativação de Base","link":"","limite":50}]},{"id":"b2","nome":"Autoridade & Posicionamento","subtitulo":"Como o mercado enxerga você.","cor":"#8FB8FF","recomendacoes":[{"nome":"FACE SCALE · Trilha de Posicionamento & Autoridade","link":"","limite":75}]},{"id":"b3","nome":"Conversão","subtitulo":"Do primeiro contato ao procedimento fechado.","cor":"#9BD770","recomendacoes":[{"nome":"FACE SCALE · Pré-vendas e Vendas (Playbook + CRM)","link":"","limite":75},{"nome":"Diagnóstico 1:1 com a System Digital","link":"","limite":50}]},{"id":"b4","nome":"Equipe & Processo","subtitulo":"O que acontece quando você não está.","cor":"#FF9A6B","recomendacoes":[{"nome":"FACE SCALE · Trilha de Processos & Pessoas","link":"","limite":75}]}],"passos":[{"id":"p1","type":"input","field":"nome","pergunta":"Antes de começar: como você se chama?","placeholder":"Seu nome","inputType":"text","bloco":""},{"id":"p2","type":"input","field":"whatsapp","pergunta":"Qual o seu WhatsApp com DDD?","placeholder":"(00) 00000-0000","inputType":"tel","bloco":""},{"id":"p3","type":"input","field":"email","pergunta":"...E qual seu melhor e-mail?","placeholder":"seu@email.com","inputType":"email","bloco":""},{"id":"p4","type":"input","field":"cidade","pergunta":"Em qual cidade fica sua clínica?","placeholder":"Digite sua cidade","inputType":"cidade","bloco":""},{"id":"p5","type":"input","field":"instagram","pergunta":"Qual o @ do seu perfil ou da sua clínica no Instagram?","placeholder":"@suaclinica","inputType":"text","bloco":""},{"id":"p6","type":"mensagem","titulo":"Perfeito, {nome}. Guardei seus dados.","texto":"Agora vamos radiografar a operação comercial da sua clínica. Leva menos de 3 minutos.","textoBotao":"Avançar","bloco":""},{"id":"p7","type":"options","field":"momento","pergunta":"{nome}, qual o seu momento hoje?","bloco":"","opcoes":[{"texto":"Tenho clínica própria","subtitulo":"Sou o dono e o principal cirurgião","pontos":0,"goTo":""},{"texto":"Sou sócio de clínica","subtitulo":"Divido a operação com outros profissionais","pontos":0,"goTo":""},{"texto":"Atendo em clínica de terceiros","subtitulo":"Quero estruturar a minha","pontos":0,"goTo":""},{"texto":"Estou montando minha clínica","subtitulo":"Começando a estruturar agora","pontos":0,"goTo":""}]},{"id":"p8","type":"options","field":"faturamento","pergunta":"Qual é o seu faturamento mensal hoje?","bloco":"","opcoes":[{"texto":"Menos de R$10k","subtitulo":"","pontos":0,"goTo":""},{"texto":"R$10k a R$20k","subtitulo":"","pontos":0,"goTo":""},{"texto":"R$25k a R$50k","subtitulo":"","pontos":0,"goTo":""},{"texto":"R$60k a R$80k","subtitulo":"","pontos":0,"goTo":""},{"texto":"Acima de R$100k","subtitulo":"","pontos":0,"goTo":""}]},{"id":"p9","type":"options","field":"fonte_previsibilidade","pergunta":"Como chegam seus pacientes hoje?","bloco":"b1","opcoes":[{"texto":"Tenho canais ativos e previsíveis","subtitulo":"Anúncios e indicações organizadas rodando todo mês","pontos":100,"goTo":""},{"texto":"Maioria por indicação espontânea","subtitulo":"Vem, mas eu não controlo o volume","pontos":45,"goTo":""},{"texto":"Depende do meu conteúdo","subtitulo":"Quando posto, aparece; quando paro, seca","pontos":30,"goTo":""},{"texto":"Não sei dizer","subtitulo":"Chegam quando chegam","pontos":0,"goTo":""}]},{"id":"p10","type":"multi","field":"fontes_ativas","pergunta":"Quais fontes de pacientes você tem ativas hoje?","subtitulo":"Marque todas que se aplicam","bloco":"b1","textoBotao":"Próximo Bloco","opcoes":[{"texto":"Anúncios pagos (Instagram/Google)","subtitulo":"","pontos":25,"goTo":""},{"texto":"Programa organizado de indicação","subtitulo":"","pontos":25,"goTo":""},{"texto":"Equipe abordando pacientes em potencial","subtitulo":"","pontos":25,"goTo":""},{"texto":"Contato com pacientes antigos para retornarem","subtitulo":"","pontos":25,"goTo":""},{"texto":"Nenhuma dessas","subtitulo":"","pontos":0,"goTo":""}]},{"id":"p11","type":"options","field":"instagram_papel","pergunta":"Seu Instagram hoje...","bloco":"b2","opcoes":[{"texto":"Posiciona minha autoridade e gera pedidos de orçamento","subtitulo":"","pontos":100,"goTo":""},{"texto":"Tem conteúdo, mas não gera pacientes","subtitulo":"","pontos":45,"goTo":""},{"texto":"Está parado ou sem estratégia","subtitulo":"","pontos":10,"goTo":""}]},{"id":"p12","type":"options","field":"paciente_chega","pergunta":"Quando o paciente chega na consulta, ele...","bloco":"b2","opcoes":[{"texto":"Já chega pronto — me escolheu pela autoridade","subtitulo":"","pontos":100,"goTo":""},{"texto":"Chega comparando preço com outros","subtitulo":"","pontos":40,"goTo":""},{"texto":"Chega frio, preciso convencer do zero","subtitulo":"","pontos":10,"goTo":""}]},{"id":"p13","type":"options","field":"quem_responde","pergunta":"Quem responde as pessoas que chamam no WhatsApp da clínica?","bloco":"b3","opcoes":[{"texto":"Tenho uma pessoa treinada só para isso","subtitulo":"Com processo de atendimento definido","pontos":100,"goTo":""},{"texto":"Minha secretária, do jeito dela","subtitulo":"","pontos":35,"goTo":""},{"texto":"Eu mesmo, entre um atendimento e outro","subtitulo":"","pontos":20,"goTo":""},{"texto":"Demoramos ou nem sempre respondemos","subtitulo":"","pontos":0,"goTo":""}]},{"id":"p14","type":"options","field":"followup","pergunta":"E quem faz a consulta ou pede orçamento mas não fecha na hora?","bloco":"b3","opcoes":[{"texto":"Temos um processo para continuar a conversa nos dias seguintes","subtitulo":"","pontos":100,"goTo":""},{"texto":"Voltamos a falar quando dá tempo","subtitulo":"","pontos":40,"goTo":""},{"texto":"Essas pessoas acabam esquecidas","subtitulo":"","pontos":0,"goTo":""}]},{"id":"p15","type":"options","field":"conversao_orcamentos","pergunta":"De cada 10 consultas, quantas viram procedimento fechado?","bloco":"b3","opcoes":[{"texto":"7 ou mais","subtitulo":"","pontos":100,"goTo":""},{"texto":"4 a 6","subtitulo":"","pontos":60,"goTo":""},{"texto":"1 a 3","subtitulo":"","pontos":25,"goTo":""},{"texto":"Não sei medir","subtitulo":"","pontos":0,"goTo":""}]},{"id":"p16","type":"options","field":"ferias","pergunta":"Se você tirar 15 dias de férias, sua clínica...","bloco":"b4","opcoes":[{"texto":"Continua vendendo e agendando normalmente","subtitulo":"","pontos":100,"goTo":""},{"texto":"Agenda, mas as vendas caem","subtitulo":"","pontos":45,"goTo":""},{"texto":"Praticamente para","subtitulo":"","pontos":0,"goTo":""}]},{"id":"p17","type":"multi","field":"estrutura_atual","pergunta":"O que sua operação já tem hoje?","subtitulo":"Marque tudo que se aplica","bloco":"b4","textoBotao":"Quase lá","opcoes":[{"texto":"Sistema para organizar contatos e conversas (CRM)","subtitulo":"","pontos":25,"goTo":""},{"texto":"Roteiro de atendimento definido para a equipe","subtitulo":"","pontos":25,"goTo":""},{"texto":"Metas e números acompanhados toda semana","subtitulo":"","pontos":25,"goTo":""},{"texto":"Pessoa dedicada só ao comercial","subtitulo":"","pontos":25,"goTo":""},{"texto":"Nada disso ainda","subtitulo":"","pontos":0,"goTo":""}]},{"id":"p18","type":"input","field":"investimento_mes","pergunta":"Quanto você investe por mês em marketing e anúncios hoje?","subtitulo":"Se não investe nada, coloque R$ 0.","placeholder":"R$ 0","inputType":"moeda","bloco":""},{"id":"p19","type":"input","field":"meses_sem_retorno","pergunta":"Há quantos meses você sente que esse investimento não traz o retorno que deveria?","subtitulo":"Se está tendo retorno, coloque 0.","placeholder":"Ex.: 6","inputType":"numero","bloco":"","max":120},{"id":"p20","type":"input","field":"consultas_mes","pergunta":"Quantas consultas foram geradas na sua clínica no último mês?","placeholder":"Ex.: 20","inputType":"numero","bloco":"","max":1000},{"id":"p21","type":"input","field":"ticket_principal","pergunta":"Qual o valor do seu procedimento principal?","subtitulo":"Se souber seu ticket médio, use ele.","placeholder":"R$ 0","inputType":"moeda","bloco":""}],"gap":{"ativo":true,"titulo":"GAP FINANCEIRO DE PERDA","texto":"Calculado com os números que você mesmo informou — o que já foi investido sem retorno e o que passa pela sua clínica todo mês.","campoInvestimento":"investimento_mes","labelInvestimento":"Investimento por mês em marketing","campoMeses":"meses_sem_retorno","labelMeses":"Tempo sem o retorno esperado","campoConsultas":"consultas_mes","labelConsultas":"Consultas geradas no último mês","campoTicket":"ticket_principal","labelTicket":"Valor do procedimento principal"}});
+</script>
+</body>
+</html>
