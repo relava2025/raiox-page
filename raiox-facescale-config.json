@@ -1,0 +1,566 @@
+{
+  "marca": "FACE SCALE",
+  "headline": "Descubra por que sua clínica fatura menos do que a sua técnica merece",
+  "subheadline": "Raio-X Comercial gratuito para cirurgiões da face: veja a saúde da sua operação, onde você perde pacientes e o plano para destravar o faturamento.",
+  "ctaInicial": "Começar meu Raio-X gratuito",
+  "ctaFinal": "Agendar meu diagnóstico estratégico",
+  "linkFinal": "https://wa.me/5500000000000?text=Acabei%20de%20fazer%20o%20Raio-X%20Comercial%20da%20minha%20cl%C3%ADnica",
+  "webhookUrl": "",
+  "loadingSteps": [
+    "Processando suas respostas",
+    "Comparando com clínicas que escalaram",
+    "Identificando onde você perde pacientes",
+    "Montando seu Raio-X personalizado"
+  ],
+  "tema": {
+    "corFundo": "#0A1A3A",
+    "corPrimaria": "#C9A45C",
+    "corTextoBotao": "#0A1A3A",
+    "fonte": "Nunito Sans",
+    "logoData": "",
+    "fotoData": ""
+  },
+  "resultado": {
+    "eyebrow": "RAIO-X COMPLETO",
+    "titulo": "Seu Raio-X Comercial, {nome}",
+    "faixas": [
+      {
+        "ate": 25,
+        "label": "UTI",
+        "cor": "#ff5252",
+        "desc": "Operação em risco — a clínica depende 100% de você"
+      },
+      {
+        "ate": 50,
+        "label": "Crítico",
+        "cor": "#ff8a3c",
+        "desc": "Gargalos graves drenando seu faturamento — agir agora"
+      },
+      {
+        "ate": 75,
+        "label": "Atenção",
+        "cor": "#ffd43c",
+        "desc": "Base boa — corrigir pontos-chave para escalar"
+      },
+      {
+        "ate": 100,
+        "label": "Saudável",
+        "cor": "#78BE20",
+        "desc": "Operação forte — hora de otimizar e escalar"
+      }
+    ]
+  },
+  "blocos": [
+    {
+      "id": "b1",
+      "nome": "Fonte de Pacientes",
+      "subtitulo": "De onde vêm seus pacientes hoje.",
+      "cor": "#C9A45C",
+      "recomendacoes": [
+        {
+          "nome": "FACE SCALE · Trilha Fonte de Pacientes (SDR + Indicação)",
+          "link": "",
+          "limite": 75
+        },
+        {
+          "nome": "Trilha de Reativação de Base",
+          "link": "",
+          "limite": 50
+        }
+      ]
+    },
+    {
+      "id": "b2",
+      "nome": "Autoridade & Posicionamento",
+      "subtitulo": "Como o mercado enxerga você.",
+      "cor": "#8FB8FF",
+      "recomendacoes": [
+        {
+          "nome": "FACE SCALE · Trilha de Posicionamento & Autoridade",
+          "link": "",
+          "limite": 75
+        }
+      ]
+    },
+    {
+      "id": "b3",
+      "nome": "Conversão",
+      "subtitulo": "Do primeiro contato ao procedimento fechado.",
+      "cor": "#9BD770",
+      "recomendacoes": [
+        {
+          "nome": "FACE SCALE · Pré-vendas e Vendas (Playbook + CRM)",
+          "link": "",
+          "limite": 75
+        },
+        {
+          "nome": "Diagnóstico 1:1 com a System Digital",
+          "link": "",
+          "limite": 50
+        }
+      ]
+    },
+    {
+      "id": "b4",
+      "nome": "Equipe & Processo",
+      "subtitulo": "O que acontece quando você não está.",
+      "cor": "#FF9A6B",
+      "recomendacoes": [
+        {
+          "nome": "FACE SCALE · Trilha de Processos & Pessoas",
+          "link": "",
+          "limite": 75
+        }
+      ]
+    }
+  ],
+  "passos": [
+    {
+      "id": "p1",
+      "type": "input",
+      "field": "nome",
+      "pergunta": "Antes de começar: como você se chama?",
+      "placeholder": "Seu nome",
+      "inputType": "text",
+      "bloco": ""
+    },
+    {
+      "id": "p2",
+      "type": "input",
+      "field": "whatsapp",
+      "pergunta": "Qual o seu WhatsApp com DDD?",
+      "placeholder": "(00) 00000-0000",
+      "inputType": "tel",
+      "bloco": ""
+    },
+    {
+      "id": "p3",
+      "type": "input",
+      "field": "email",
+      "pergunta": "...E qual seu melhor e-mail?",
+      "placeholder": "seu@email.com",
+      "inputType": "email",
+      "bloco": ""
+    },
+    {
+      "id": "p4",
+      "type": "input",
+      "field": "cidade",
+      "pergunta": "Em qual cidade fica sua clínica?",
+      "placeholder": "Digite sua cidade",
+      "inputType": "cidade",
+      "bloco": ""
+    },
+    {
+      "id": "p5",
+      "type": "input",
+      "field": "instagram",
+      "pergunta": "Qual o @ do seu perfil ou da sua clínica no Instagram?",
+      "placeholder": "@suaclinica",
+      "inputType": "text",
+      "bloco": ""
+    },
+    {
+      "id": "p6",
+      "type": "mensagem",
+      "titulo": "Perfeito, {nome}. Guardei seus dados.",
+      "texto": "Agora vamos radiografar a operação comercial da sua clínica. Leva menos de 3 minutos.",
+      "textoBotao": "Avançar"
+    },
+    {
+      "id": "p7",
+      "type": "options",
+      "field": "momento",
+      "pergunta": "{nome}, qual o seu momento hoje?",
+      "bloco": "",
+      "opcoes": [
+        {
+          "texto": "Tenho clínica própria",
+          "subtitulo": "Sou o dono e o principal cirurgião",
+          "pontos": 0,
+          "goTo": ""
+        },
+        {
+          "texto": "Sou sócio de clínica",
+          "subtitulo": "Divido a operação com outros profissionais",
+          "pontos": 0,
+          "goTo": ""
+        },
+        {
+          "texto": "Atendo em clínica de terceiros",
+          "subtitulo": "Quero estruturar a minha",
+          "pontos": 0,
+          "goTo": ""
+        },
+        {
+          "texto": "Estou montando minha clínica",
+          "subtitulo": "Começando a estruturar agora",
+          "pontos": 0,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "type": "options",
+      "field": "faturamento",
+      "pergunta": "Qual é o seu faturamento mensal hoje?",
+      "bloco": "",
+      "opcoes": [
+        {
+          "texto": "Menos de R$10k",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        },
+        {
+          "texto": "R$10k a R$20k",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        },
+        {
+          "texto": "R$25k a R$50k",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        },
+        {
+          "texto": "R$60k a R$80k",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        },
+        {
+          "texto": "Acima de R$100k",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p9",
+      "type": "options",
+      "field": "fonte_previsibilidade",
+      "pergunta": "Como chegam seus pacientes hoje?",
+      "bloco": "b1",
+      "opcoes": [
+        {
+          "texto": "Tenho canais ativos e previsíveis",
+          "subtitulo": "Anúncios e indicações organizadas rodando todo mês",
+          "pontos": 100,
+          "goTo": ""
+        },
+        {
+          "texto": "Maioria por indicação espontânea",
+          "subtitulo": "Vem, mas eu não controlo o volume",
+          "pontos": 45,
+          "goTo": ""
+        },
+        {
+          "texto": "Depende do meu conteúdo",
+          "subtitulo": "Quando posto, aparece; quando paro, seca",
+          "pontos": 30,
+          "goTo": ""
+        },
+        {
+          "texto": "Não sei dizer",
+          "subtitulo": "Chegam quando chegam",
+          "pontos": 0,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "type": "multi",
+      "field": "fontes_ativas",
+      "pergunta": "Quais fontes de pacientes você tem ativas hoje?",
+      "subtitulo": "Marque todas que se aplicam",
+      "bloco": "b1",
+      "textoBotao": "Próximo Bloco",
+      "opcoes": [
+        {
+          "texto": "Anúncios pagos (Instagram/Google)",
+          "pontos": 25
+        },
+        {
+          "texto": "Programa organizado de indicação",
+          "pontos": 25
+        },
+        {
+          "texto": "Equipe abordando pacientes em potencial",
+          "pontos": 25
+        },
+        {
+          "texto": "Contato com pacientes antigos para retornarem",
+          "pontos": 25
+        },
+        {
+          "texto": "Nenhuma dessas",
+          "pontos": 0
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "type": "options",
+      "field": "instagram_papel",
+      "pergunta": "Seu Instagram hoje...",
+      "bloco": "b2",
+      "opcoes": [
+        {
+          "texto": "Posiciona minha autoridade e gera pedidos de orçamento",
+          "subtitulo": "",
+          "pontos": 100,
+          "goTo": ""
+        },
+        {
+          "texto": "Tem conteúdo, mas não gera pacientes",
+          "subtitulo": "",
+          "pontos": 45,
+          "goTo": ""
+        },
+        {
+          "texto": "Está parado ou sem estratégia",
+          "subtitulo": "",
+          "pontos": 10,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "type": "options",
+      "field": "paciente_chega",
+      "pergunta": "Quando o paciente chega na consulta, ele...",
+      "bloco": "b2",
+      "opcoes": [
+        {
+          "texto": "Já chega pronto — me escolheu pela autoridade",
+          "subtitulo": "",
+          "pontos": 100,
+          "goTo": ""
+        },
+        {
+          "texto": "Chega comparando preço com outros",
+          "subtitulo": "",
+          "pontos": 40,
+          "goTo": ""
+        },
+        {
+          "texto": "Chega frio, preciso convencer do zero",
+          "subtitulo": "",
+          "pontos": 10,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "type": "options",
+      "field": "quem_responde",
+      "pergunta": "Quem responde as pessoas que chamam no WhatsApp da clínica?",
+      "bloco": "b3",
+      "opcoes": [
+        {
+          "texto": "Tenho uma pessoa treinada só para isso",
+          "subtitulo": "Com processo de atendimento definido",
+          "pontos": 100,
+          "goTo": ""
+        },
+        {
+          "texto": "Minha secretária, do jeito dela",
+          "subtitulo": "",
+          "pontos": 35,
+          "goTo": ""
+        },
+        {
+          "texto": "Eu mesmo, entre um atendimento e outro",
+          "subtitulo": "",
+          "pontos": 20,
+          "goTo": ""
+        },
+        {
+          "texto": "Demoramos ou nem sempre respondemos",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "type": "options",
+      "field": "followup",
+      "pergunta": "E quem faz a consulta ou pede orçamento mas não fecha na hora?",
+      "bloco": "b3",
+      "opcoes": [
+        {
+          "texto": "Temos um processo para continuar a conversa nos dias seguintes",
+          "subtitulo": "",
+          "pontos": 100,
+          "goTo": ""
+        },
+        {
+          "texto": "Voltamos a falar quando dá tempo",
+          "subtitulo": "",
+          "pontos": 40,
+          "goTo": ""
+        },
+        {
+          "texto": "Essas pessoas acabam esquecidas",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "type": "options",
+      "field": "conversao_orcamentos",
+      "pergunta": "De cada 10 consultas, quantas viram procedimento fechado?",
+      "bloco": "b3",
+      "opcoes": [
+        {
+          "texto": "7 ou mais",
+          "subtitulo": "",
+          "pontos": 100,
+          "goTo": ""
+        },
+        {
+          "texto": "4 a 6",
+          "subtitulo": "",
+          "pontos": 60,
+          "goTo": ""
+        },
+        {
+          "texto": "1 a 3",
+          "subtitulo": "",
+          "pontos": 25,
+          "goTo": ""
+        },
+        {
+          "texto": "Não sei medir",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p16",
+      "type": "options",
+      "field": "ferias",
+      "pergunta": "Se você tirar 15 dias de férias, sua clínica...",
+      "bloco": "b4",
+      "opcoes": [
+        {
+          "texto": "Continua vendendo e agendando normalmente",
+          "subtitulo": "",
+          "pontos": 100,
+          "goTo": ""
+        },
+        {
+          "texto": "Agenda, mas as vendas caem",
+          "subtitulo": "",
+          "pontos": 45,
+          "goTo": ""
+        },
+        {
+          "texto": "Praticamente para",
+          "subtitulo": "",
+          "pontos": 0,
+          "goTo": ""
+        }
+      ]
+    },
+    {
+      "id": "p17",
+      "type": "multi",
+      "field": "estrutura_atual",
+      "pergunta": "O que sua operação já tem hoje?",
+      "subtitulo": "Marque tudo que se aplica",
+      "bloco": "b4",
+      "textoBotao": "Quase lá",
+      "opcoes": [
+        {
+          "texto": "Sistema para organizar contatos e conversas (CRM)",
+          "pontos": 25
+        },
+        {
+          "texto": "Roteiro de atendimento definido para a equipe",
+          "pontos": 25
+        },
+        {
+          "texto": "Metas e números acompanhados toda semana",
+          "pontos": 25
+        },
+        {
+          "texto": "Pessoa dedicada só ao comercial",
+          "pontos": 25
+        },
+        {
+          "texto": "Nada disso ainda",
+          "pontos": 0
+        }
+      ]
+    },
+    {
+      "id": "p18",
+      "type": "input",
+      "field": "investimento_mes",
+      "pergunta": "Quanto você investe por mês em marketing e anúncios hoje?",
+      "subtitulo": "Se não investe nada, coloque R$ 0.",
+      "placeholder": "R$ 0",
+      "inputType": "moeda",
+      "bloco": ""
+    },
+    {
+      "id": "p19",
+      "type": "input",
+      "field": "meses_sem_retorno",
+      "pergunta": "Há quantos meses você sente que esse investimento não traz o retorno que deveria?",
+      "subtitulo": "Se está tendo retorno, coloque 0.",
+      "placeholder": "Ex.: 6",
+      "inputType": "numero",
+      "bloco": "",
+      "max": 120
+    },
+    {
+      "id": "p20",
+      "type": "input",
+      "field": "consultas_mes",
+      "pergunta": "Quantas consultas foram geradas na sua clínica no último mês?",
+      "placeholder": "Ex.: 20",
+      "inputType": "numero",
+      "bloco": "",
+      "max": 1000
+    },
+    {
+      "id": "p21",
+      "type": "input",
+      "field": "ticket_principal",
+      "pergunta": "Qual o valor do seu procedimento principal?",
+      "subtitulo": "Se souber seu ticket médio, use ele.",
+      "placeholder": "R$ 0",
+      "inputType": "moeda",
+      "bloco": ""
+    }
+  ],
+  "gap": {
+    "ativo": true,
+    "titulo": "GAP FINANCEIRO DE PERDA",
+    "texto": "Calculado com os números que você mesmo informou — o que já foi investido sem retorno e o que passa pela sua clínica todo mês.",
+    "campoInvestimento": "investimento_mes",
+    "labelInvestimento": "Investimento por mês em marketing",
+    "campoMeses": "meses_sem_retorno",
+    "labelMeses": "Tempo sem o retorno esperado",
+    "campoConsultas": "consultas_mes",
+    "labelConsultas": "Consultas geradas no último mês",
+    "campoTicket": "ticket_principal",
+    "labelTicket": "Valor do procedimento principal"
+  }
+}
