@@ -1,4 +1,4 @@
-# Anamnese Comercial · FACE SCALE
+# Diagnóstico FACE · FACE SCALE
 
 Página pública do diagnóstico comercial para cirurgiões da face.
 
