@@ -761,13 +761,15 @@ let config = {
     "labelConsultas": "Consultas geradas no último mês",
     "campoTicket": "ticket_principal",
     "labelTicket": "Valor do procedimento principal"
-  }
+  },
+  "pixelId": "1410560621133609"
 };
 
 let selectedId = config.passos[0].id;   /* id de passo, "bloco:<id>", "config" ou "tema" */
 let idCounter = 100;
 
 function migrate(c){
+  if(c.pixelId===undefined) c.pixelId = "";
   if(!c.tema) c.tema = defaultTema();
   if(!c.resultado) c.resultado = defaultResultado();
   if(!c.resultado.tituloPlano) c.resultado.tituloPlano = "Plano de Ação do Diagnóstico";
@@ -1042,6 +1044,8 @@ function renderConfigEditor(ed){
     '<div class="field"><label>Link do CTA (WhatsApp, agenda…)</label><input type="url" value="'+esc(c.linkFinal)+'" oninput="updCfg(\'linkFinal\',this.value)"/></div>'+
     '<div class="field"><label>Webhook (Make, n8n, Zapier…)</label><input type="url" value="'+esc(c.webhookUrl)+'" oninput="updCfg(\'webhookUrl\',this.value)"/>'+
     '<p class="hint">POST em JSON ao concluir, com todas as respostas + pontuação geral e por bloco. Evento <b>quiz_lead</b> também vai para o dataLayer (GTM).</p></div>'+
+    '<div class="field"><label>Meta Pixel — ID</label><input type="text" value="'+esc(c.pixelId||"")+'" oninput="updCfg(\'pixelId\',this.value)"/>'+
+    '<p class="hint">Dispara <b>PageView</b>, <b>IniciouDiagnostico</b> (ao começar) e <b>Lead</b> (ao concluir, com o valor do potencial em 12 meses). Deixe vazio para desativar.</p></div>'+
 
     '<div class="section-title">Tela de resultado</div>'+
     '<div class="grid-2">'+
@@ -1648,11 +1652,42 @@ function QUIZ_ENGINE(CONFIG){
       return { bloco:s.bloco.nome, score:s.score, status:faixaDe(s.score).label };
     });
     payload.data = new Date().toISOString();
+
+    /* valor do lead = potencial em 12 meses (consultas × procedimento × 12) */
+    var gp = CONFIG.gap||{};
+    var vCons = Number(respostas[(gp.campoConsultas||"")+"__num"])||0;
+    var vTik = Number(respostas[(gp.campoTicket||"")+"__num"])||0;
+    var valorLead = vCons*vTik*12;
+
+    /* dados para a API de Conversões (deduplicação pelo event_id) */
+    function cookie(n){
+      var m = document.cookie.match("(^|;)\\s*"+n+"\\s*=\\s*([^;]+)");
+      return m ? m.pop() : "";
+    }
+    var eventId = "df-" + Date.now() + "-" + Math.random().toString(36).slice(2,10);
+    payload.event_id = eventId;
+    payload.valor_lead = valorLead;
+    payload.fbp = cookie("_fbp");
+    payload.fbc = cookie("_fbc");
+    payload.page_url = location.href;
+    payload.user_agent = navigator.userAgent;
+
     if(CONFIG.webhookUrl){
       fetch(CONFIG.webhookUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){});
     }
     window.dataLayer = window.dataLayer||[];
     window.dataLayer.push(Object.assign({event:"quiz_lead"}, payload));
+
+    if(window.fbq){
+      fbq("track","Lead",{
+        value: valorLead,
+        currency: "BRL",
+        content_name: "Diagnóstico FACE",
+        content_category: respostas.faturamento || "",
+        pontuacao: scores.geral
+      },{ eventID: eventId });
+    }
+
     showScreen("screen-loading");
     runLoading(function(){ showResult(scores); });
   }
@@ -1801,6 +1836,7 @@ function QUIZ_ENGINE(CONFIG){
   $id("btn-start").innerHTML = esc(CONFIG.ctaInicial||"Começar")+" →";
   $id("footer-note").textContent = (CONFIG.marca||"") + " © " + (new Date().getFullYear()) + " · All Rights Reserved";
   $id("btn-start").onclick = function(){
+    if(window.fbq) fbq("trackCustom","IniciouDiagnostico");
     document.body.classList.add("flow");
     currentId = CONFIG.passos[0] ? CONFIG.passos[0].id : null;
     history = [];
@@ -1817,6 +1853,7 @@ function buildQuizHTML(cfg){
     '<title>'+esc(String(cfg.resultado && cfg.resultado.titulo ? cfg.resultado.titulo : "Diagnóstico").replace(/,?\s*\{nome\}/g,"").trim())+' · '+esc(cfg.marca)+'</title>\n'+
     '<meta name="description" content="'+esc(cfg.subheadline||"")+'"/>\n'+
     '<!-- GTM: cole aqui o snippet do Google Tag Manager -->\n'+
+    (cfg.pixelId ? '<!-- Meta Pixel -->\n<script>\n!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");\nfbq("init","'+esc(cfg.pixelId)+'");\nfbq("track","PageView");\n<'+'/script>\n<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id='+esc(cfg.pixelId)+'&ev=PageView&noscript=1"/></noscript>\n<!-- End Meta Pixel -->\n' : '')+
     '<link rel="preconnect" href="https://fonts.googleapis.com">\n'+
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'+
     '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">\n'+
