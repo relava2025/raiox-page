@@ -1,4 +1,4 @@
-# Raio-X Comercial · FACE SCALE
+# Anamnese Comercial · FACE SCALE
 
 Página pública do diagnóstico comercial para cirurgiões da face.
 
