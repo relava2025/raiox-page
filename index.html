@@ -274,6 +274,9 @@ body.flow .bg-overlay{background:linear-gradient(to bottom,rgba(var(--azul-rgb),
   /* ---------- navegação ---------- */
   function goToStep(id){ history.push(currentId); currentId=id; renderStep(); }
   function nextSequential(){
+    var atual = findStep(currentId);
+    /* terminou de preencher o contato → grava o lead parcial na planilha */
+    if(atual && atual.field === "instagram"){ enviarParcial(); }
     var i = stepIndex(currentId);
     if(i < CONFIG.passos.length-1){ goToStep(CONFIG.passos[i+1].id); }
     else finish();
@@ -470,6 +473,28 @@ body.flow .bg-overlay{background:linear-gradient(to bottom,rgba(var(--azul-rgb),
   }
 
   /* ---------- finalização ---------- */
+  /* Envia o lead PARCIAL assim que o contato é preenchido (antes das perguntas).
+     Grava na planilha como "Incompleto" — recupera quem abandona no meio. */
+  var parcialEnviado = false;
+  function enviarParcial(){
+    if(parcialEnviado) return;
+    parcialEnviado = true;
+    var payload = {
+      status_lead: "Incompleto",
+      nome: respostas.nome || "",
+      whatsapp: respostas.whatsapp || "",
+      email: respostas.email || "",
+      cidade: respostas.cidade || "",
+      instagram: respostas.instagram || "",
+      page_url: location.href,
+      user_agent: navigator.userAgent,
+      data: new Date().toISOString()
+    };
+    if(CONFIG.webhookUrl){
+      fetch(CONFIG.webhookUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){});
+    }
+  }
+
   function finish(){
     var scores = calcScores();
     var payload = {};
@@ -478,6 +503,7 @@ body.flow .bg-overlay{background:linear-gradient(to bottom,rgba(var(--azul-rgb),
     payload.pontuacao_blocos = scores.blocos.map(function(s){
       return { bloco:s.bloco.nome, score:s.score, status:faixaDe(s.score).label };
     });
+    payload.status_lead = "Completo";
     payload.data = new Date().toISOString();
 
     /* valor do lead = potencial em 12 meses (consultas × procedimento × 12) */
